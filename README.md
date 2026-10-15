@@ -1,4 +1,4 @@
-# Katge Infrastructure
+# KATGE - Media Infrastructure
 
 Katge extracts selected intervals from supported public video and audio.
 Use the browser extension, REST API or MCP to inspect a source, choose a time
