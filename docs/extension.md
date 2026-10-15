@@ -1,49 +1,18 @@
-# Katge browser extensions
+# Browser extension
 
-The 1.1.0 client provides source selection, preview, time-range inputs and browser
-file saving. Source inspection, processing decisions and extraction remain on the
-Katge service. The client has no local media-engine fallback and requires a
-compatible backend.
+Select a supported public source, preview it, choose start/end times and save
+the completed clip. The client requires a compatible Katge service.
 
-[Overview](../README.md) · [Product website](website.md) · [Release status](releases.md)
+[Overview](../README.md) · [REST API](api.md) · [Release status](releases.md)
 
-## The browser workflow
+Version 1.1.0 remains an unpublished candidate. Chromium, Firefox and Opera
+are build targets; store availability and compatibility must be checked for the
+specific installed version. This repository does not distribute installers.
 
-Start from the media you are browsing. Select a source, inspect its available
-formats and duration, preview it, choose the start/end of the interval and save
-the completed result. The browser interface keeps selection close to the source.
+Requests send the source URL, an installation identifier and API credentials
+to Katge. Some providers require limited public-player observations, and media
+may be transferred for processing. See [privacy](privacy.md).
 
-For example, a user can choose an eight-second passage from a supported public
-video and request MP4. Source availability and format support determine whether
-that request can complete. Inspect first to check the source and available formats.
-
-Requests include a source URL, an installation identity and an API credential.
-Some providers require bounded observations of public-player fields. Media can
-be transferred to the Katge service for processing.
-
-## Release status
-
-Version 1.1.0 is an unpublished candidate. The earlier 1.0.0 website ZIPs are
-withdrawn from the development website. Existing store listings must be checked
-by version; they do not establish availability of the backend-connected client.
-
-No download URL is provided here until the service, package hashes, browser
-behavior and release review are accepted. Chromium, Firefox and Opera are build
-targets; a build target is not a store approval or live compatibility guarantee.
-
-See [Availability and acceptance](releases.md#browser-candidate-acceptance) for
-the service and browser checks blocking the new release.
-
-## Installation after publication
-
-For a reviewed Chromium ZIP, extract it and use Load unpacked in the browser's
-extension manager. Select the folder containing `manifest.json`, not the ZIP.
-Firefox packages use a separate manifest and store review.
-
-Start playback on a supported public media page if no source is detected. Choose
-the source and format, check duration, then select a valid start/end interval.
-Source access, platform changes and the installed version affect availability.
-Public, non-DRM media only.
-
-Report the version, browser, platform and stable error code. Do not attach API
-credentials, temporary download URLs or raw player observations to public issues.
+For issues, include the extension version, browser, source platform and error
+code. Keep credentials, temporary download links and raw observations out of
+public reports.

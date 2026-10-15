@@ -59,7 +59,7 @@ export function checkLinks(root, files) {
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-  const files = ['README.md', 'SECURITY.md', 'CHANGELOG.md', 'assets/PROVENANCE.md', 'docs/architecture.md', 'docs/extension.md', 'docs/api.md', 'docs/mcp.md', 'docs/website.md', 'docs/releases.md', 'docs/privacy.md']
+  const files = ['README.md', 'SECURITY.md', 'CHANGELOG.md', 'assets/PROVENANCE.md', 'docs/extension.md', 'docs/api.md', 'docs/mcp.md', 'docs/releases.md', 'docs/privacy.md', 'docs/usage-and-billing.md']
   const failures = checkLinks(root, files)
   if (failures.length) { console.error(failures.join('\n')); process.exitCode = 1 }
   else console.log(`Publication-safe documentation links passed: ${files.length} documents.`)

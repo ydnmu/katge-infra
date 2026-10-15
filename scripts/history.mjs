@@ -48,6 +48,7 @@ export function contentFindings(file, bytes) {
     return validAnimation(bytes) ? [] : [`${file}: malformed or unsupported GIF content`]
   }
   const text = bytes.toString('utf8')
+  if (/\bgh[pousr]_[A-Za-z0-9]{30,}\b|\bgithub_pat_[A-Za-z0-9_]{40,}\b|\bAKIA[0-9A-Z]{16}\b|\bsk_(?:live|test)_[A-Za-z0-9]{20,}\b|\bkatge_[A-Za-z0-9_-]{43}\b/.test(text)) return [`${file}: credential marker`]
   if (file.endsWith('.svg')) {
     if (!/^<svg\b[\s\S]*<\/svg>\s*$/.test(text)) return [`${file}: unexpected SVG format`]
     if (/<!DOCTYPE|<!ENTITY|<(?:script|foreignObject|image|animate\w*|set|a)\b|\son[a-z]+\s*=|(?:href|src)\s*=|url\(\s*(?!#)|@import/i.test(text)) return [`${file}: active or external SVG content`]

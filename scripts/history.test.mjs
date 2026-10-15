@@ -35,6 +35,15 @@ test('product diagrams allow static local shapes and reject executable or extern
   }
 })
 
+test('publication rejects credential-shaped content without echoing values', () => {
+  for (const value of ['gho_' + 'a'.repeat(36), 'github_pat_' + 'a'.repeat(50),
+    'AKIA' + 'A'.repeat(16), 'sk_live_' + 'a'.repeat(24), 'katge_' + 'a'.repeat(43)]) {
+    const findings = contentFindings('example.md', Buffer.from(value))
+    assert.deepEqual(findings, ['example.md: credential marker'])
+    assert.ok(!findings.join('\n').includes(value))
+  }
+})
+
 test('product animations reject truncated blocks, non-image payloads and appended data', () => {
   const header = Buffer.from('47494638396101000100800000000000ffffff', 'hex')
   const loop = Buffer.from('21ff0b4e45545343415045322e300301000000', 'hex')

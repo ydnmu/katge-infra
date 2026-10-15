@@ -8,11 +8,9 @@ import { contentFindings, historyFindings } from './history.mjs'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 export const allowed = new Set([
   '.gitattributes', '.gitignore', 'README.md', 'SECURITY.md', 'CHANGELOG.md',
-  'assets/katge-mark.png', 'assets/product-preview.png', 'assets/PROVENANCE.md',
-  'assets/product-flow.svg', 'assets/product-flow-dark.svg',
-  'assets/product-flow.gif', 'assets/product-flow-dark.gif',
-  'docs/architecture.md', 'docs/api.md', 'docs/extension.md', 'docs/privacy.md', 'docs/search-openapi.json',
-  'docs/mcp.md', 'docs/website.md', 'docs/releases.md',
+  'assets/katge-mark.png', 'assets/PROVENANCE.md',
+  'docs/api.md', 'docs/extension.md', 'docs/privacy.md', 'docs/search-openapi.json',
+  'docs/mcp.md', 'docs/releases.md', 'docs/usage-and-billing.md',
   'scripts/check-publication.mjs', 'scripts/doc-links.mjs',
   '.github/workflows/verify.yml',
   'scripts/export.mjs',
@@ -31,6 +29,10 @@ for (const file of allowed) if (!inventory.includes(file)) failures.push(`Missin
 failures.push(...checkLinks(root, [...allowed].filter(file => file.endsWith('.md'))))
 const schema = JSON.parse(readFileSync(resolve(root, 'docs/search-openapi.json'), 'utf8'))
 if (schema.openapi !== '3.1.0' || Object.keys(schema.paths ?? {}).length !== 8) failures.push('Unexpected contract reference')
-failures.push(...historyFindings(root, allowed, '1b61b32883aaf0c1931c037e56296ad7e9e2a4a5'))
+// Removed, previously reviewed documentation stays subject to history scanning.
+const historicalAllowed = new Set([...allowed, 'assets/product-preview.png',
+  'assets/product-flow.svg', 'assets/product-flow-dark.svg', 'assets/product-flow.gif',
+  'assets/product-flow-dark.gif', 'docs/architecture.md', 'docs/website.md'])
+failures.push(...historyFindings(root, historicalAllowed, '1b61b32883aaf0c1931c037e56296ad7e9e2a4a5'))
 if (failures.length) { console.error([...new Set(failures)].join('\n')); process.exitCode = 1 }
 else console.log(`Public presentation review passed: ${new Set(inventory).size} approved files; documentation and contract links verified.`)

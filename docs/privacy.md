@@ -18,7 +18,9 @@ credentials or signed download links.
 
 The service processes identity, tenant, job and quota records. The consumer API
 uses IP addresses for abuse prevention and rate limits. Enabled search deployments
-also process queries, source records and results. Expiring result access does
+also process queries, source records and results. Usage and billing records
+include operation outcomes, measured resource quantities, credit reservations
+and settlements when configured. Expiring result access does
 not imply deletion of every operational record. Retention is deployment-specific.
 
 For privacy questions and data requests, contact

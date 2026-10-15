@@ -1,53 +1,21 @@
-# Release status
+# Changelog
 
-## 9 October 2026 — documentation review
+## 15 October 2026
 
-Shortened repeated workflow descriptions, made the API example an explicit
-sample URL, and corrected the privacy description to acknowledge the live
-website's Cloudflare performance beacon. Diagram labels describe the clip
-workflow directly; animation and theme support are unchanged.
+- Added usage and billing documentation: usage history, prepaid credits,
+  spending limits, settlement and REST/MCP read interfaces.
+- Documented success-only charging: failed processing, cancellation and partial
+  results release reserved credits. Live payments remain disabled.
+- Fixed clip retries after result expiry, HLS resource validation and indexed
+  fragment offsets in the local implementation. Removed whole-file fallback
+  after progressive planning fails.
+- Removed repeated product explanations, workflow animations, architecture
+  diagrams and the outdated development screenshot from this repository.
 
-## 9 October 2026 — animated product flow
+These implementation changes are locally verified and are not a production
+deployment or browser-extension release.
 
-The Infrastructure README now animates source selection, request flow and result
-delivery through the three client interfaces. Light/dark GIFs retain the original
-diagram and readable labels. Reduced-motion preferences select the static SVGs,
-which are also linked directly. The animation illustrates public product behavior.
+## 8–9 October 2026
 
-## 9 October 2026 — Katge Infrastructure
-
-The public repository becomes Katge Infrastructure, the main product and
-integration hub. Its README introduces extensions, REST API, MCP and the website
-together. Original light/dark product diagrams explain the source-to-result
-workflow without mapping internal components. Dedicated API, MCP, website and
-availability pages separate public contracts from release acceptance.
-
-Implementation source remains in its separate repositories. This publication
-updates the GitHub presentation; it does not deploy a service, publish a browser
-package or enable public search.
-
-## 9 October 2026 — public presentation
-
-Public documentation describes the backend-connected architecture and its actual
-limitations. The website candidate withdraws legacy extension ZIPs, corrects data
-flow descriptions, improves reference loading and preserves navigation at desktop
-and mobile widths.
-
-This presentation is published in its own GitHub repository, independently of
-the private source repositories. Website refinements and extension candidates
-remain separate release work. No backend deployment, browser-store submission
-or public search rollout is announced.
-
-The isolated presentation guard now checks removed content in reachable Git
-history as well as current files. The preview image reflects the last verified
-development page. Extension publication remains blocked by missing consumer
-routes in the production protocol probe.
-
-## 8 October 2026 — development foundations
-
-Backend-connected extension 1.1.0 and preview search contracts were prepared
-locally. Search is disabled by default. Visual
-results remain candidates, and Turkish visual-query quality remains unresolved.
-
-Prior browser-store versions have separate processing behavior. This repository
-does not redistribute older binaries or certify their current store status.
+- Added clip API and MCP documentation, the extension 1.1.0 candidate status,
+  search contracts and privacy information.

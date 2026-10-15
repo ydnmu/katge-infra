@@ -3,7 +3,7 @@
 Inspect supported media, request a clip, follow its job and retrieve the result
 through REST endpoints.
 
-[Overview](../README.md) · [MCP](mcp.md) · [Release status](releases.md)
+[Overview](../README.md) · [MCP](mcp.md) · [Usage and billing](usage-and-billing.md) · [Release status](releases.md)
 
 ## Request lifecycle
 
@@ -74,6 +74,13 @@ or `all` does not prove the first or every occurrence of an event.
 
 Turkish visual-query quality, long-audio checkpoints and several HLS paths remain
 acceptance work. See [Availability](releases.md) before advertising search support.
+
+## Usage and credits
+
+The locally verified billing preview adds balance, usage, transaction and
+statement reads under `/v1/billing`, plus operational usage under `/v1/usage`.
+These endpoints require `billing:read`; they do not enable payments or assign
+prices. See [usage and billing](usage-and-billing.md) for routes and pagination.
 
 ## Responsible integration
 

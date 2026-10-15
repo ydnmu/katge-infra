@@ -49,3 +49,11 @@ partial reasons. They do not automatically create clips or verify every event.
 
 Search defaults to disabled. See the [public search contract](api.md#search-preview)
 and [availability](releases.md) before advertising an agent integration.
+
+## Usage and billing preview
+
+Configured deployments can expose `katge.get_balance`, `katge.get_usage`,
+`katge.get_billing_transactions`, `katge.get_billing_statement`,
+`katge.get_usage_events` and `katge.get_usage_summary`.
+These read-only tools require `billing:read`; they cannot purchase credits or
+change prices. See [parameters and policy](usage-and-billing.md).
